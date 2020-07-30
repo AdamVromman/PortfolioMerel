@@ -8,6 +8,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class VideoComponent implements OnInit {
 
+  public loaded: boolean = false;
   @Input() video: any;
 
   constructor(
@@ -22,19 +23,12 @@ export class VideoComponent implements OnInit {
     let url = `assets/videos/${this.video.name}.mp4`;
     let videoHtml = <HTMLVideoElement>document.getElementById(this.video.name);
     let overlayHtml = document.getElementById(`${this.video.name}overlay`);
-    videoHtml.style.minWidth = '100%';
+    //videoHtml.style.minWidth = '100%';
     videoHtml.setAttribute('src', url);
-    videoHtml.style.height = '360px';
-    console.log(videoHtml.clientHeight);
-    if (videoHtml.offsetWidth < videoHtml.parentElement.offsetWidth)
-    {
-      
-      console.log(this.video.name);
-    }
-    overlayHtml.style.width = '100%';
-    overlayHtml.style.height = `${this.video.height}px`;
+    //videoHtml.style.height = '240px';
+    //overlayHtml.style.width = '100%';
+    //overlayHtml.style.height = '240px';
     overlayHtml.style.backgroundColor = 'rgba(0,0,0,0.4)';
-
     overlayHtml.addEventListener('mouseenter', () => 
     {
       overlayHtml.style.cursor = 'pointer';
@@ -52,7 +46,6 @@ export class VideoComponent implements OnInit {
      
       window.open(this.video.url,'_blank');
     });
-
   }
 
 }

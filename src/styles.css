@@ -1,6 +1,6 @@
 *
 {
-    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-family: 'Asap', sans-serif;
 }
 
 body
@@ -9,4 +9,6 @@ body
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    margin: 0;
+    padding: 0;
 }

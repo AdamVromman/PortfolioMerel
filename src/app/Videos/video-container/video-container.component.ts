@@ -12,7 +12,7 @@ export class VideoContainerComponent implements OnInit {
     {
       name:"meskeremMees", 
       title:"Meskerem Mees - Joe", 
-      description:"bla bla bla bla bla, hallo dit is ook een beschrijven joupie, ziet er super mooi uit amai", 
+      description:"Dit is een mooie beschrijving", 
       width: 480, 
       height:360,
       url:"https://www.youtube.com/watch?v=OxMGzXGgXFg"
@@ -20,7 +20,7 @@ export class VideoContainerComponent implements OnInit {
     {
       name:"krankk",
       title:"KRANKk - Everybody's sick", 
-      description:"blo blo blob lbobeoblsbls bla bla dit is een beschrijven, lekker interessant joupieeee",
+      description:"Dit is een mooie beschrijving",
       width:640,
       height:360,
       url:"https://www.youtube.com/watch?v=10lWLk00YlQ"
@@ -28,7 +28,7 @@ export class VideoContainerComponent implements OnInit {
     {
       name:"meskeremMees1", 
       title:"Meskerem Mees - Joe", 
-      description:"bla bla bla bla bla, hallo dit is ook een beschrijven joupie, ziet er super mooi uit amai", 
+      description:"Dit is een mooie beschrijving", 
       width: 640,
       widthProc: 640, 
       height:360,
@@ -37,7 +37,7 @@ export class VideoContainerComponent implements OnInit {
     {
       name:"meskeremMees2", 
       title:"Meskerem Mees - Joe", 
-      description:"bla bla bla bla bla, hallo dit is ook een beschrijven joupie, ziet er super mooi uit amai", 
+      description:"Dit is een mooie beschrijving", 
       width: 480,
       widthProc:640, 
       height:360,
@@ -64,7 +64,7 @@ export class VideoContainerComponent implements OnInit {
     {
       name:"meskeremMees5", 
       title:"Meskerem Mees - Joe", 
-      description:"bla bla bla bla bla, hallo dit is ook een beschrijven joupie, ziet er super mooi uit amai", 
+      description:"Dit is een mooie beschrijving", 
       width: 480, 
       widthProc:640, 
       height:360,
@@ -81,11 +81,12 @@ export class VideoContainerComponent implements OnInit {
       let videos = document.getElementsByTagName('app-video');
       for (var x = 0; x < this.urls.length - 1; x+=2)
       {
-      this.urls[x].width = this.urls[x].width / this.urls[x].height * 360;
-      this.urls[x + 1].width = this.urls[x + 1].width / this.urls[x].height * 360;
+      this.urls[x].width = this.urls[x].width / this.urls[x].height * 480 ;
+      console.log(this.urls[x].width);
+      this.urls[x + 1].width = this.urls[x + 1].width / this.urls[x].height * 480;
       var totalWidth = this.urls[x].width + this.urls[x + 1].width;
-      videos[x].setAttribute('style', "width: " + ((this.urls[x].width - totalWidth / 100) / totalWidth * 100) + '%;' );
-      videos[x + 1].setAttribute('style', "width: " + ((this.urls[x + 1].width  - totalWidth / 100) / totalWidth * 100) + '%;');
+      videos[x].setAttribute('style', "width: " + ((this.urls[x].width - totalWidth / 100 * 2) / totalWidth * 100) + '%;' );
+      videos[x + 1].setAttribute('style', "width: " + ((this.urls[x + 1].width  - totalWidth / 100 * 2) / totalWidth * 100) + '%;');
       }
       
     });
