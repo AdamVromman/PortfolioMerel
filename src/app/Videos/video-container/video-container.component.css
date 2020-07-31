@@ -2,11 +2,10 @@
 {
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
     background-color: white;
-    padding: 0.5%;
+    
+   
 }
 
 app-video
@@ -14,5 +13,33 @@ app-video
     width: 50%;
     overflow: hidden;
     margin: 1%;
-    
+    /* border: white solid 10px;
+    box-sizing: border-box; */
+}
+
+#videoContainerPage
+{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5%;
+}
+
+.title
+{
+    color: black;
+    font-size: 10vw;
+    margin: 0;
+    text-align: center;
+}
+
+.titleCard
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+h3{
+    margin-top:0;
 }

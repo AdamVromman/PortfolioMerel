@@ -81,9 +81,6 @@ export class VideoContainerComponent implements OnInit {
       let videos = document.getElementsByTagName('app-video');
       for (var x = 0; x < this.urls.length - 1; x+=2)
       {
-      this.urls[x].width = this.urls[x].width / this.urls[x].height * 480 ;
-      console.log(this.urls[x].width);
-      this.urls[x + 1].width = this.urls[x + 1].width / this.urls[x].height * 480;
       var totalWidth = this.urls[x].width + this.urls[x + 1].width;
       videos[x].setAttribute('style', "width: " + ((this.urls[x].width - totalWidth / 100 * 2) / totalWidth * 100) + '%;' );
       videos[x + 1].setAttribute('style', "width: " + ((this.urls[x + 1].width  - totalWidth / 100 * 2) / totalWidth * 100) + '%;');
