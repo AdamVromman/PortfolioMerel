@@ -1,6 +1,7 @@
 *
 {
-    font-family: 'Asap', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
 }
 
 body
@@ -12,4 +13,46 @@ body
     background-size: cover;
     margin: 0;
     padding: 0;
+}
+
+h1
+{
+    font-family: 'Raleway Dots', cursive;
+    font-size: 10vw;
+    font-weight: 500;
+    margin: 0;
+}
+
+
+a
+{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover
+{
+    text-decoration: none;
+    color: black;
+}
+
+a:visited
+{
+    text-decoration: none;
+    color: black;
+}
+
+.title
+{
+    color: black;
+    /* font-size: 10vw; */
+    margin: 0;
+    text-align: center;
+}
+
+.titleCard
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }

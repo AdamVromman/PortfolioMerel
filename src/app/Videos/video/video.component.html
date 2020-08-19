@@ -1,10 +1,13 @@
-<div id="wrapper" class="wrapper">
-    <video class="video" [id]="video.name" muted="muted" loop></video>
-    <div [id]="video.name + 'overlay'" class="overlay">
+
+<div #wrapper id="wrapper" class="wrapper">
+    <video #video class="video" [muted]="true" loop></video>
+    <div #overlay class="overlay">
         <div class="text">
             <p>{{video.title}}</p>
             <p>{{video.description}}</p>
         </div>
     </div>
+    
+    
 </div>
 

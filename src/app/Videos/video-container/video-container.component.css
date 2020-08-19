@@ -2,43 +2,33 @@
 {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    width: 70%;
     background-color: white;
-    
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0; 
    
 }
 
 app-video
 {
-    width: 50%;
+    width: 30%;
+    height: 0;
+    padding-bottom: 30%;
     overflow: hidden;
-    margin: 1%;
+    margin: 1.66%;
     /* border: white solid 10px;
     box-sizing: border-box; */
 }
 
 #videoContainerPage
 {
-    width: 75%;
+    /* width: 100%;
     margin-left: auto;
-    margin-right: auto;
-    padding: 0.5%;
+    margin-right: auto; */
 }
 
-.title
-{
-    color: black;
-    font-size: 10vw;
-    margin: 0;
-    text-align: center;
-}
 
-.titleCard
-{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
 
 h3{
     margin-top:0;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-photo',
@@ -7,9 +7,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhotoComponent implements OnInit {
 
-  constructor() { }
+  @Input() photoUrl: string;
+  @Input() folderUrl: string;
+  @ViewChild('img') img: ElementRef;
+
+
+  constructor() { 
+
+    
+
+  }
 
   ngOnInit(): void {
+    
+  }
+
+  ngAfterViewInit()
+  {
+    
+  }
+
+
+  public onError()
+  {
+    this.img.nativeElement.src = 'url(assets/error.png)';
+    
   }
 
 }

@@ -1,0 +1,24 @@
+.album
+{
+    width: 30%;
+    height: 0;
+    padding-top: 30%;
+    margin: 1.66%;
+    background-size: cover;
+}
+
+.album:hover
+{
+    cursor: pointer;
+}
+
+.wrapper
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}

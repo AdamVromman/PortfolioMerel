@@ -1,6 +1,4 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { DirectiveResolver } from '@angular/compiler';
 
 @Component({
   selector: 'app-video',
@@ -11,6 +9,9 @@ export class VideoComponent implements OnInit {
 
   public loaded: boolean = false;
   @Input() video: any;
+  @ViewChild('video', {static: false}) videoHTML: ElementRef;
+  @ViewChild('overlay', {static: false}) overlayHTML: ElementRef;
+
 
   constructor(
     private _element: ElementRef
@@ -22,25 +23,21 @@ export class VideoComponent implements OnInit {
 
   ngAfterViewInit():void{
     let url = `assets/videos/${this.video.name}.mp4`;
-    let videoHtml = <HTMLVideoElement>document.getElementById(this.video.name);
-    let overlayHtml = document.getElementById(`${this.video.name}overlay`);
-    //videoHtml.style.minWidth = '100%';
+    let videoHtml = <HTMLVideoElement>this.videoHTML.nativeElement;
+    let overlayHtml = <HTMLElement>this.overlayHTML.nativeElement;
     videoHtml.setAttribute('src', url);
-    //videoHtml.style.height = '240px';
-    //overlayHtml.style.width = '100%';
-    //overlayHtml.style.height = '240px';
     overlayHtml.style.backgroundColor = 'rgba(0,0,0,0.4)';
     overlayHtml.addEventListener('mouseenter', () => 
     {
       overlayHtml.style.cursor = 'pointer';
-      overlayHtml.style.opacity = '1';
+      overlayHtml.style.opacity = '0';
       videoHtml.play();
     });
     overlayHtml.addEventListener('mouseout', () =>
     {
-      overlayHtml.style.cursor = 'default';
-      overlayHtml.style.opacity = '0';
+      overlayHtml.style.opacity = '1';
       videoHtml.pause();
+
     });
     overlayHtml.addEventListener('click', () =>
     {
@@ -60,6 +57,7 @@ export class VideoComponent implements OnInit {
       groteVideo.style.maxWidth = '80%';
       groteVideo.style.maxHeight = '80%';
       groteVideo.autoplay = true;
+      groteVideo.controls = true;
       groteVideo.style.marginLeft = 'auto';
       groteVideo.style.marginRight = 'auto';
       div.appendChild(groteVideo);
@@ -85,7 +83,46 @@ export class VideoComponent implements OnInit {
         document.body.removeChild(superOverlay);
       }
     });
+
+    videoHtml.addEventListener('fullscreenchange', () =>
+    {
+      console.log("test");
+    });
     
   }
+
+
+  public bigVideo()
+  {
+    let parent = <HTMLElement>this._element.nativeElement
+    let video = <HTMLVideoElement>this.videoHTML.nativeElement;
+    video.style.position = 'fixed';
+    video.style.width = '70vw';
+    video.style.zIndex = '300';
+    video.style.left = '0';
+    video.style.top = '0';
+    video.setAttribute('controls', 'true');
+    video.play();
+    
+
+     
+  
+  }
+
+  public reset()
+  {
+    console.log('reset');
+    let parent = <HTMLElement>this._element.nativeElement
+    let video = <HTMLVideoElement>this.videoHTML.nativeElement;
+    parent.style.width = '48%';
+    parent.style.position = 'inherit';
+    parent.style.marginLeft = '';
+    parent.style.marginRight = '';
+    parent.style.zIndex = '';
+  }
+  
+
+  
+
 
 }

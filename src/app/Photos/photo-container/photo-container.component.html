@@ -1,2 +1,25 @@
-<p>photo-container works!</p>
-<app-photo></app-photo>
+<h1 class="title">{{album.name}}</h1>
+<div class="wrapper" *ngIf="album != null; else loading">
+    <div class="columnWrapper">
+        <div class="column">
+            <div class="photoWrapper" *ngFor="let photo of album1" >
+                <app-photo [photoUrl]="photo" [folderUrl]="album.link"></app-photo>
+            </div>
+        </div>
+        <div class="column">
+            <div class="photoWrapper" *ngFor="let photo of album2" >
+                <app-photo [photoUrl]="photo" [folderUrl]="album.link"></app-photo>
+            </div>
+        </div>
+        <div class="column">
+            <div class="photoWrapper" *ngFor="let photo of album3">
+                <app-photo  [photoUrl]="photo" [folderUrl]="album.link"></app-photo>
+            </div>
+        </div>
+    </div>
+        
+</div>
+<ng-template #loading>
+<p>loading</p>
+</ng-template>
+
