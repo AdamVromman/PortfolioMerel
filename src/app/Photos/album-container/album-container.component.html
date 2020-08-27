@@ -2,6 +2,10 @@
     <h1 class="title">FOTO</h1>
 </div>
 <div class="wrapper"> 
-    <div [routerLink]="[album.link]" #album class="album" *ngFor="let album of albums">
+    <div   class="album" *ngFor="let album of albums">
+            <img #album class="image">
+                <div [routerLink]="[album.link]" (keydown)="followLink($event)" #text class="text" (mouseenter)="focus($event)" (focus)="focus($event)" (blur)="blur($event)" (mouseleave)="blur($event)">
+                    <p>{{album.name}}</p>
+                </div>
     </div>
 </div>

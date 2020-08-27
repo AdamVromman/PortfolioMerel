@@ -56,3 +56,16 @@ a:visited
     flex-direction: column;
     text-align: center;
 }
+
+
+@media screen and (max-width: 990px)
+{
+    h1
+{
+    font-family: 'Raleway Dots', cursive;
+    font-size: 15vw;
+    font-weight: 500;
+    margin: 0;
+}
+
+}

@@ -31,7 +31,7 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    opacity: 1;
+    opacity: 0;
 
 }
 
@@ -41,7 +41,7 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    /* height: min-content; */
+    z-index: 11;
    
 }
 
@@ -56,6 +56,28 @@ video
     bottom: 0;
     position: absolute;
 
+}
+
+#link
+{
+    
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+}
+
+.yt
+{
+    z-index: 1001;
+    color:white;
+    width: 10%;
+}
+
+.yt:hover{
+    cursor: pointer;
+    width: 11%;
 }
 
 

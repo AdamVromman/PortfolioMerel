@@ -30,7 +30,54 @@
 }
 
 
-.title
+.photoOverlay
 {
-    font-size: 7vw;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 1000;
+    top: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+
 }
+
+.close
+{
+    position: absolute;
+    width: 2%;
+    top:0;
+    right: 0;
+    margin: 1rem;
+}
+
+
+.carouselCustom
+{
+    /* max-width: 70%;
+    max-height: 70%; */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carouselImage
+{
+    max-width: 90vw;
+    max-height: 90vh;
+    
+}
+
+@media screen and (max-width: 990px)
+{
+    .columnWrapper
+{
+    flex-direction: column;
+}
+.column
+{
+    width: 90%
+}
+}
+

@@ -1,13 +1,13 @@
 
-<div #wrapper id="wrapper" class="wrapper">
+<div *ngIf="video != null" #wrapper id="wrapper" class="wrapper">
     <video #video class="video" [muted]="true" loop></video>
-    <div #overlay class="overlay">
-        <div class="text">
-            <p>{{video.title}}</p>
-            <p>{{video.description}}</p>
-        </div>
+    <div tabindex="0" (focus)="focus()"  (mouseenter)="focus()" (keydown)=openOverlayKeyboard($event) (mouseleave)="blur($event)" (click)="openOverlay($event)" #overlay class="overlay">
+            <div class="text">
+                    <p>{{title}}</p>
+                    <p>{{description}}</p>
+                <a class="ytLink" target="_blank" href="https://www.youtube.com/?hl=nl"><img class="yt" src="assets/yt.svg"></a>
+            </div>
     </div>
-    
     
 </div>
 

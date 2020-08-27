@@ -1,19 +1,38 @@
+<div class="photoOverlay" id="photoOverlay" #photoOverlay>
+    <img id="close" class="close" src="assets/close.svg">
+    <div data-keyboard="true" data-interval="false" id="carouselExampleControls" class="carousel slide carouselCustom">
+        <div class="carousel-inner carouselInnerCustom">
+          <div class="carousel-item carouselItemCustom" *ngFor="let item of album.photos">
+              <img class="carouselImage" [src]="'assets/photos/' + album.link + '/' + item + '.jpg'">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+</div>
+
 <h1 class="title">{{album.name}}</h1>
 <div class="wrapper" *ngIf="album != null; else loading">
     <div class="columnWrapper">
         <div class="column">
-            <div class="photoWrapper" *ngFor="let photo of album1" >
+            <div  class="photoWrapper" *ngFor="let photo of album1" >
                 <app-photo [photoUrl]="photo" [folderUrl]="album.link"></app-photo>
             </div>
         </div>
         <div class="column">
-            <div class="photoWrapper" *ngFor="let photo of album2" >
+            <div   class="photoWrapper" *ngFor="let photo of album2" >
                 <app-photo [photoUrl]="photo" [folderUrl]="album.link"></app-photo>
             </div>
         </div>
         <div class="column">
-            <div class="photoWrapper" *ngFor="let photo of album3">
-                <app-photo  [photoUrl]="photo" [folderUrl]="album.link"></app-photo>
+            <div   class="photoWrapper" *ngFor="let photo of album3">
+                <app-photo [photoUrl]="photo" [folderUrl]="album.link"></app-photo>
             </div>
         </div>
     </div>

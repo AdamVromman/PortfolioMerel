@@ -3,25 +3,18 @@
         <h1>Merel Matthys</h1>
     </div>
     <div class="photo">
-          <ngb-carousel [keyboard]="false" [pauseOnHover]="false" [showNavigationArrows]="false" [showNavigationIndicators]="false" [wrap]="true">
-              <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                    <img src="assets/homeSlideshow/bewerking-12.jpg">
-                  </div>
-              </ng-template>
-              <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                    <img src="assets/homeSlideshow/bewerking-13.jpg">
-                  </div>
-              </ng-template>
-              <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                    <img src="assets/homeSlideshow/bewerking-14.jpg">
-                  </div>
-              </ng-template>
-          </ngb-carousel>
-
+          <div class="carousel slide carousel-fade" data-wrap="true" data-interval="7000" data-keyboard="false" data-pause="false" data-ride="carousel">
+            <div class="carousel-inner">
+              <div #carouselItem *ngFor="let item of images" class="carousel-item">
+                <img #carouselImage [src]="item" class="d-block w-100 carouselImage" />
+              </div>
+            </div>
+          </div>
     </div>
+    <span class="copyright">
+      &#169; Adam Vromman
+    </span>
     
 </div>
+
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChildren, QueryList, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import albums from '../../../assets/photos/photos.json'
 import { PhotoComponent } from '../photo/photo.component';
@@ -14,6 +14,9 @@ export class PhotoContainerComponent implements OnInit {
   public album1 = [];
   public album2 = [];
   public album3 = [];
+
+  @ViewChildren(PhotoComponent) photos: any;
+  @ViewChild('photoOverlay', {static:false})photoOverlay: ElementRef;
 
   constructor(private _route: ActivatedRoute) { }
 
@@ -45,8 +48,37 @@ export class PhotoContainerComponent implements OnInit {
 
   ngAfterViewInit()
   {
-    
+    let overlay = document.getElementById('photoOverlay');
+    let images: any[] = this.album.photos;
+    for (let item of this.photos._results)
+    {
 
+      let carouselItems = document.getElementsByClassName('carousel-item');
+      item.image.nativeElement.addEventListener('click', () =>
+      {
+        carouselItems[images.indexOf(item.photoUrl, 0)].className = 'carousel-item active';
+        overlay.style.display = 'flex';
+      });
+
+      item.image.nativeElement.addEventListener('keydown', (event: any) =>
+      {
+        console.log(event);
+        if (event.keyCode == 13)
+        {
+          carouselItems[images.indexOf(item.photoUrl, 0)].className = 'carousel-item active';
+          this.photoOverlay.nativeElement.style.display = 'flex';
+    }
+      });
+    }
+    document.getElementById('close').addEventListener('click', () =>
+  {
+    overlay.style.display = 'none';
+    let active = document.getElementsByClassName('carousel-item active')[0];
+    active.className = 'carousel-item';
+  });
   }
+  
+
+  
 
 }
