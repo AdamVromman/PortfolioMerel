@@ -1,12 +1,14 @@
-<div class="filmOverlay" id="filmOverlay">
-    <img id="close" class="close" src="assets/close.svg">
-    <video id="overlayVideo"></video>
+<div #filmOverlay class="filmOverlay" id="filmOverlay">
+    <button id="close" type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    <video #filmOverlayVideo id="overlayVideo"></video>
 </div>
 <div id=videoContainerPage>
     <div class="titleCard">
         <h1 class="title">FILM</h1>
     </div>
     <div class="container" id="container">
-        <app-video [video]="url" *ngFor="let url of urls"></app-video>
+        <app-video (openOverlayEvent)="openOverlay($event)" [video]="url" *ngFor="let url of urls"></app-video>
     </div>
 </div>

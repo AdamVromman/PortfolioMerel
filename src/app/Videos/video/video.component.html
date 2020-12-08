@@ -1,7 +1,12 @@
 
-<div *ngIf="video != null" #wrapper id="wrapper" class="wrapper">
+<div #wrapper id="wrapper" class="wrapper">
+    <div #loading class="loadingWrapper">
+        <div  class="spinner-border loading" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
     <video #video class="video" [muted]="true" loop></video>
-    <div tabindex="0" (focus)="focus()"  (mouseenter)="focus()" (keydown)=openOverlayKeyboard($event) (mouseleave)="blur($event)" (click)="openOverlay($event)" #overlay class="overlay">
+    <div tabindex="0" (focus)="focus()"  (mouseenter)="focus()" (keydown)=openOverlayKeyboard($event) (mouseleave)="blur()" (click)="openOverlay()" #overlay class="overlay">
             <div class="text">
                     <p>{{title}}</p>
                     <p>{{description}}</p>

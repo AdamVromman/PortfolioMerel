@@ -1,5 +1,7 @@
 <div class="photoOverlay" id="photoOverlay" #photoOverlay>
-    <img id="close" class="close" src="assets/close.svg">
+    <button id="close" type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     <div data-keyboard="true" data-interval="false" id="carouselExampleControls" class="carousel slide carouselCustom">
         <div class="carousel-inner carouselInnerCustom">
           <div class="carousel-item carouselItemCustom" *ngFor="let item of album.photos">

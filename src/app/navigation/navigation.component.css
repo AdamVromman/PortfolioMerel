@@ -10,6 +10,10 @@
     width: 100%;
 }
 
+.activated
+{
+    font-weight: 700;
+}
 
 img{
     width: 15%;
@@ -45,3 +49,8 @@ img:hover
 {
     margin-right: -200px;
 }
+
+/* .gray
+{
+    background-color: grey
+} */
